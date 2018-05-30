@@ -27,4 +27,5 @@ group :development do
   #開発環境でのみ必要なようです（よくわかっていません）
   gem 'listen', '>= 3.0.5', '< 3.2'
 
+  gem 'faker', '1.7.3'
 end
