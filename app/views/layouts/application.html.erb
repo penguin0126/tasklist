@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TaskKanri</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<head>
+  <title>タスク管理 サンプル (Ruby on Rails)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <%= javascript_include_tag 'application' %>
+</head>
+<body>
+<header id="header" style="background-color: #333;color:#fff">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 id="title">
+          タスク管理 サンプル (Ruby on Rails)
+        </h1>
+      </div>
+    </div>
+  </div>
+</header>
+<main id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</main>
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div style="padding-top:10px;text-align: center;border-top: 1px #999999 solid;">
+          <p>フッター</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
 </html>
