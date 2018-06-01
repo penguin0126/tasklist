@@ -44,8 +44,26 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    flash[:info] = 'successfully deleted'
+    redirect_to request.referer
   end
 
   def completed
+    @task = Task.find(params[:id])
+    @task.status = true
+    @task.save
+    redirect_to request.referer
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(
+      :title,
+      :note,
+      :deadline_form
+    )
   end
 end
