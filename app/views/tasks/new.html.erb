@@ -1,2 +1,12 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<h2>Add task</h2>
+<div class="waku">
+  <%= form_for @task do |f| %>
+      <%= render "form", f: f %>
+      <div class="row well" style="margin:20px 0 0 0;padding:10px;">
+        <div class="col-sm-12">
+          <%= link_to "cancel", tasks_path, class:"btn btn-default", style:"float:left" %>
+          <%= f.submit "Add task", class:"btn btn-primary", style:"float:right" %>
+        </div>
+      </div>
+  <% end %>
+</div>
