@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>タスク管理 サンプル (Ruby on Rails)</title>
+  <title>Task List Sample (Ruby on Rails)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,14 +12,83 @@
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <%= javascript_include_tag 'application' %>
+  <style type="text/css">
+    .waku{
+      padding:20px;
+      margin-bottom:20px;
+      border-radius:4px;
+      border:2px solid #ddd;
+    }
+    @media (max-width: 768px) {
+      h1#title{
+        font-size:16pt;
+      }
+      a {
+        -webkit-tap-highlight-color: rgba(16, 16, 16, 0.3);
+      }
+      .pc-only{
+        display:none;
+      }
+      .grid-th-width1{
+        width:0%;
+      }
+      .grid-th-width2{
+        width:50%;
+      }
+      .grid-th-width3{
+        width:15%;
+      }
+      .grid-th-width4{
+        width:20%;
+      }
+      .grid-th-width5{
+        width:15%;
+      }
+      .redirect_to-cell a{
+        display:block;
+        text-align:center;
+      }
+    }
+    @media (min-width: 769px) {
+      h1#title{
+        font-size:24pt;
+      }
+      .grid-th-width1{
+        width:10%;
+      }
+      .grid-th-width2{
+        width:50%;
+      }
+      .grid-th-width3{
+        width:12%;
+      }
+      .grid-th-width4{
+        width:13%;
+      }
+      .grid-th-width5{
+        width:15%;
+      }
+      .deadline_format-cell a{
+        margin-right:10px;
+      }
+    }
+  </style>
 </head>
 <body>
+<script>
+  $(function() {
+    if ($(".alert").length)
+    {
+      $(".alert").show();
+    }
+  });
+</script>
 <header id="header" style="background-color: #333;color:#fff">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
         <h1 id="title">
-          タスク管理 サンプル (Ruby on Rails)
+          Task List Sample (Ruby on Rails)
         </h1>
       </div>
     </div>
@@ -29,6 +98,13 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
+        <% if flash[:info].present? %>
+          <div class="alert alert-info" style="margin-top:20px;border-width:3px;display:none">
+            <ul>
+              <li><%= flash[:info] %></li>
+            </ul>
+          </div>
+        <% end %>
         <%= yield %>
       </div>
     </div>
@@ -39,7 +115,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div style="padding-top:10px;text-align: center;border-top: 1px #999999 solid;">
-          <p>フッター</p>
+          <p>footer</p>
         </div>
       </div>
     </div>
