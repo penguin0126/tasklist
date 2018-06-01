@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20180530054532) do
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.string   "note"
     t.datetime "deadline"
     t.boolean  "status"
